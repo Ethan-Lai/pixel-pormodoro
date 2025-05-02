@@ -23,3 +23,10 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+// Counts down by 1 second every time
+var startTimer = setInterval(function() {
+    // minutes &^ seconds?
+}, 1000)
+
+// Want a stop button
