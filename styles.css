@@ -5,11 +5,18 @@
     font-style: normal;
 }
 
+.press-start-2p-regular {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+  
 body {
     background-color: #240414;
     color: #f8d4a4;
     margin: 0px;
     display: flex;
+    overflow-y: hidden;
 }
 
 #study-gif {
@@ -43,8 +50,27 @@ button {
     color: #a24e26;
     width: 130px;
     height: 50px;
+    margin-left: 3px;
+    margin-right: 3px;
     font-family: "Rubik", sans-serif;
     font-optical-sizing: auto;
     font-weight: bold;
     font-style: normal;
+}
+
+button:hover {
+    background-color: #ebbd51e2;
+    cursor: pointer;
+}
+
+i {
+    font-size: 15px;
+    margin-right: 5px;
+}
+
+input {
+    margin-top: 0px;
+    width: 40px;
+    height: 30px;
+    border-radius: 5px;  
 }

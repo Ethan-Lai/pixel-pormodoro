@@ -2,29 +2,93 @@
 <html>
     <head>
         <link rel="stylesheet" href="./styles.css" />
+        <link rel="stylesheet" href="./modal.css" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     </head>
     <body class="rubik-font">
         <div>
             <img id="study-gif" src="https://i.pinimg.com/originals/ee/e0/c1/eee0c1dc806da44930fc6eb26b94a737.gif" />
         </div>
         <div class="controls">
-            <h1>Pormodoro Study</h1>
+            <h1>Pixel Pomodoro</h1>
 
-            <div class="options">
-                <button>Pormodoro</button>
-                <button>Short Break</button>
-                <button>Long Break</button>
+            <div>
+                <button id="pomodoro-btn">Pomodoro</button>
+                <button id="short-break-btn">Short Break</button>
+                <button id="long-break-btn">Long Break</button>
             </div>
 
-            <h1 id="time">2 5 : 0 0</h1>
+            <div class="controls">
+                <h1 id="time">2 5 : 0 0</h1>
+                <div>
+                    <button>Start</button>
+                    <button id="options"><i class="fa-solid fa-gear"></i>Options</button>
+                    <div id="options-modal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h1>Options</h1>
+                            <h2>Time (Minutes)</h2>
+                            <div id="time-options">
+                                <div class="time-buttons">
+                                    <h3>Pomodoro</h3>
+                                    <input type="number" value="25" />
+                                </div>
+                                <div class="time-buttons">
+                                    <h3>Short Break</h3>
+                                    <input type="number" value="5" />
+                                </div>
+                                <div class="time-buttons">
+                                    <h3>Long Break</h3>
+                                    <input type="number" value="10" />
+                                </div>
+                            </div>
 
-            <button>Start</button>
+                            <hr>
+                            
+                            <div class="options">
+                                <h3>Pixel Font</h3>
+                                <input type="checkbox" />
+                            </div>
 
-            <iframe width="300" height="315" src="https://www.youtube.com/embed/WGGyKlzcFJQ?si=FmZ75hHAsiCpZxJ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <div class="options">
+                                <h3>Music</h3>
+                                <input type="checkbox" />
+                            </div>
+
+                            <div class="options">
+                                <h3>Music Volume</h3>
+                                <input class="volume-bar" type="range" min="1" max="100">
+                            </div>
+
+                            <div class="options">
+                                <h3>Rain</h3>
+                                <input type="checkbox" />
+                            </div>
+
+                            <div class="options">
+                                <h3>Rain Volume</h3>
+                                <input class="volume-bar" type="range" min="1" max="100">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--
+                <iframe width="300" height="315" src="https://www.youtube.com/embed/WGGyKlzcFJQ?si=FmZ75hHAsiCpZxJ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            -->
+
+            <script src="index.js"></script>
+            <script src="modal.js"></script>
         </div>
     </body>
 </html>
