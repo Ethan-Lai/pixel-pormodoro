@@ -98,7 +98,7 @@ function startTimer() {
             seconds--
         } else if (seconds <= 0) {
             minutes--
-            seconds = 2
+            seconds = 59
         }
 
         if (seconds <= 0 && minutes <= 0) {
@@ -166,11 +166,9 @@ rainAudio.addEventListener("ended", function() {
 musicVolumeBtn.addEventListener("change", function() {
     let volume = musicVolumeBtn.value
     musicAudio.volume = volume
-    console.log(musicAudio.volume)
 })
 
 rainVolumeBtn.addEventListener("change", function() {
     let volume = rainVolumeBtn.value
     rainAudio.volume = volume
-    console.log(rainAudio.volume)
 })
