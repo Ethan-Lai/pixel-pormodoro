@@ -26,6 +26,12 @@ var timeDoneAudio = new Audio("./audio/minecraft_xp.mp3")
 var musicAudio = new Audio("./audio/persona_5_beneath_the_mask.mp3")
 var rainAudio = new Audio("./audio/rain_noises.mp3")
 
+var musicVolumeBtn = document.getElementById("music-volume")
+var rainVolumeBtn = document.getElementById("rain-volume")
+
+musicAudio.volume = musicVolumeBtn.value
+rainAudio.volume = rainVolumeBtn.value
+
 //NOTE: Update BTNs & TIMEs later to create more DRY approach
 pomodoroBtn.addEventListener("click", function() {
     minutes = pomodoroTime.value
@@ -155,4 +161,16 @@ musicAudio.addEventListener("ended", function() {
 
 rainAudio.addEventListener("ended", function() {
     rainAudio.play()
+})
+
+musicVolumeBtn.addEventListener("change", function() {
+    let volume = musicVolumeBtn.value
+    musicAudio.volume = volume
+    console.log(musicAudio.volume)
+})
+
+rainVolumeBtn.addEventListener("change", function() {
+    let volume = rainVolumeBtn.value
+    rainAudio.volume = volume
+    console.log(rainAudio.volume)
 })
