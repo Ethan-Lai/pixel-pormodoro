@@ -17,6 +17,15 @@ var minutes = parseInt(pomodoroTime.value)
 var seconds = 0
 var timeDisplay = document.getElementById("time-display")
 
+let musicBtn = document.getElementById("music-audio")
+let rainBtn = document.getElementById("rain-audio")
+let musicBoolean = false
+let rainBoolean = false
+
+var timeDoneAudio = new Audio("./audio/minecraft_xp.mp3")
+var musicAudio = new Audio("./audio/persona_5_beneath_the_mask.mp3")
+var rainAudio = new Audio("./audio/rain_noises.mp3")
+
 //NOTE: Update BTNs & TIMEs later to create more DRY approach
 pomodoroBtn.addEventListener("click", function() {
     minutes = pomodoroTime.value
@@ -83,16 +92,19 @@ function startTimer() {
             seconds--
         } else if (seconds <= 0) {
             minutes--
-            seconds = 59
+            seconds = 2
         }
 
         if (seconds <= 0 && minutes <= 0) {
             if (String(timeType) === "Pomodoro") {
                 stopTime()
+                timeDoneAudio.play()
             } else if (String(timeType) === "Short Break") {
                 stopTime()
+                timeDoneAudio.play()
             } else if (String(timeType) === "Long Break") {
                 stopTime()
+                timeDoneAudio.play()
             }
         }
         timeDisplay.textContent = displayTime()
@@ -101,9 +113,46 @@ function startTimer() {
 
 
 function stopTime() {
+    if (String(timeType) === "Pomodoro") {
+        minutes = userPomodoroTime
+    } else if (String(timeType) === "Short Break") {
+        minutes = userShortBreakTime
+    } else if (String(timeType) === "Long Break") {
+        minutes = userLongBreakTime
+    }
     seconds = 0
     timeDisplay.textContent = displayTime()
     clearInterval(timer)
     isPaused = false
     startPauseBtn.textContent = "Start"
 }
+
+musicBtn.addEventListener("click", function() {
+    if (musicBoolean) {
+        musicAudio.pause()
+        musicAudio.currentTime = 0
+        musicBoolean = false
+    } else {
+        musicAudio.play()
+        musicBoolean = true
+    }
+})
+
+rainBtn.addEventListener("click", function() {
+    if (rainBoolean) {
+        rainAudio.pause()
+        rainAudio.currentTime = 0
+        rainBoolean = false
+    } else {
+        rainAudio.play()
+        rainBoolean = true
+    }
+})
+
+musicAudio.addEventListener("ended", function() {
+    musicAudio.play()
+})
+
+rainAudio.addEventListener("ended", function() {
+    rainAudio.play()
+})
