@@ -19,15 +19,11 @@ body {
     display: flex;
     justify-content: center;
     height: 100vh;
+    width: 100%;
     overflow-y: hidden;
     background: url("https://i.pinimg.com/originals/ee/e0/c1/eee0c1dc806da44930fc6eb26b94a737.gif");
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-#study-gif {
-    height: 100vh;
-    width: 82vw;
 }
 
 .main-controls {
@@ -35,14 +31,12 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 25%;
 }
 
 .controls {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
 }
 
 h1 {
