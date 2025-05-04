@@ -16,6 +16,9 @@ let timeType = pomodoroBtn.textContent
 var minutes = parseInt(pomodoroTime.value)
 var seconds = 0
 var timeDisplay = document.getElementById("time-display")
+var titleDisplay = document.getElementById("browser-title")
+
+titleDisplay.textContent = displayTimeTitle()
 
 let musicBtn = document.getElementById("music-audio")
 let rainBtn = document.getElementById("rain-audio")
@@ -36,6 +39,7 @@ rainAudio.volume = rainVolumeBtn.value
 pomodoroBtn.addEventListener("click", function() {
     minutes = pomodoroTime.value
     timeDisplay.textContent = displayTime()
+    titleDisplay.textContent = displayTimeTitle()
     timeType = pomodoroBtn.textContent
     stopTime()
 })
@@ -43,6 +47,7 @@ pomodoroBtn.addEventListener("click", function() {
 pomodoroTime.addEventListener("change", function() {
     minutes = pomodoroTime.value
     timeDisplay.textContent = displayTime()
+    titleDisplay.textContent = displayTimeTitle()
     userPomodoroTime = minutes
     stopTime()
 })
@@ -50,6 +55,7 @@ pomodoroTime.addEventListener("change", function() {
 shortBreakBtn.addEventListener("click", function() {
     minutes = shortBreakTime.value
     timeDisplay.textContent = displayTime()
+    titleDisplay.textContent = displayTimeTitle()
     timeType = shortBreakBtn.textContent
     stopTime()
 })
@@ -57,6 +63,7 @@ shortBreakBtn.addEventListener("click", function() {
 shortBreakTime.addEventListener("change", function() {
     minutes = shortBreakTime.value
     timeDisplay.textContent = displayTime()
+    titleDisplay.textContent = displayTimeTitle()
     userShortBreakTime = minutes
     stopTime()
 })
@@ -64,6 +71,7 @@ shortBreakTime.addEventListener("change", function() {
 longBreakBtn.addEventListener("click", function() {
     minutes = longBreakTime.value
     timeDisplay.textContent = displayTime()
+    titleDisplay.textContent = displayTimeTitle()
     timeType = longBreakBtn.textContent
     stopTime()
 })
@@ -71,6 +79,7 @@ longBreakBtn.addEventListener("click", function() {
 longBreakTime.addEventListener("change", function() {
     minutes = longBreakTime.value
     timeDisplay.textContent = displayTime()
+    titleDisplay.textContent = displayTimeTitle()
     userLongBreakTime = minutes
     stopTime()
 })
@@ -78,6 +87,10 @@ longBreakTime.addEventListener("change", function() {
 // Display time with spaces in between
 function displayTime() {
     return `${String(minutes).split("").join(" ")} : ${String(seconds).padStart(2, "0").split("").join(" ")}`
+}
+
+function displayTimeTitle() {
+    return`${String(minutes)}:${String(seconds).padStart(2, "0")}`
 }
 
 startPauseBtn.addEventListener("click", function() {
@@ -114,6 +127,7 @@ function startTimer() {
             }
         }
         timeDisplay.textContent = displayTime()
+        titleDisplay.textContent = displayTimeTitle()
     }, 1000)
 }
 
@@ -128,6 +142,7 @@ function stopTime() {
     }
     seconds = 0
     timeDisplay.textContent = displayTime()
+    titleDisplay.textContent = displayTimeTitle()
     clearInterval(timer)
     isPaused = false
     startPauseBtn.textContent = "Start"

@@ -1,6 +1,9 @@
 <!doctype html>
 <html>
     <head>
+        <title id="browser-title"></title>
+        <link rel="icon" href="https://i.pinimg.com/736x/ea/09/94/ea09946a9c7c321c5969be9ddd2ac326.jpg" />
+
         <link rel="stylesheet" href="./styles.css" />
         <link rel="stylesheet" href="./modal.css" />
 
@@ -15,71 +18,100 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     </head>
     <body id="body" class="rubik-font">
-        <div>
-            <img id="study-gif" src="https://i.pinimg.com/originals/ee/e0/c1/eee0c1dc806da44930fc6eb26b94a737.gif" />
-        </div>
-        <div class="controls">
-            <h1>Pixel Pomodoro</h1>
+        <div class="main-controls">
+            <div id="pomodoro-container">
+                <h1>Pixel Pomodoro</h1>
 
-            <div>
-                <button id="pomodoro-btn">Pomodoro</button>
-                <button id="short-break-btn">Short Break</button>
-                <button id="long-break-btn">Long Break</button>
-            </div>
+                <div class="control-buttons">
+                    <button id="pomodoro-btn">Pomodoro</button>
+                    <button id="short-break-btn">Short Break</button>
+                    <button id="long-break-btn">Long Break</button>
+                </div>
 
-            <div class="controls">
-                <h1 id="time-display">2 5 : 0 0</h1>
-                <div>
-                    <button id="start-btn">Start</button>
-                    <button id="options"><i class="fa-solid fa-gear"></i>Options</button>
-                    <div id="options-modal" class="modal">
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <h1>Options</h1>
-                            <h2>Time (Minutes)</h2>
-                            <div id="time-options">
-                                <div class="time-buttons">
-                                    <h3>Pomodoro</h3>
-                                    <input id="pomodoro-time" type="number" value="25" />
+                <div class="controls">
+                    <h1 id="time-display">2 5 : 0 0</h1>
+                    <div>
+                        <button id="start-btn">Start</button>
+                        <button id="options"><i class="fa-solid fa-gear"></i>Options</button>
+                        <div id="options-modal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <h1>Options</h1>
+                                <h2>Time (Minutes)</h2>
+                                <div id="time-options">
+                                    <div class="time-buttons">
+                                        <h3>Pomodoro</h3>
+                                        <input id="pomodoro-time" type="number" value="25" />
+                                    </div>
+                                    <div class="time-buttons">
+                                        <h3>Short Break</h3>
+                                        <input id="short-break-time" type="number" value="5" />
+                                    </div>
+                                    <div class="time-buttons">
+                                        <h3>Long Break</h3>
+                                        <input id="long-break-time" type="number" value="10" />
+                                    </div>
                                 </div>
-                                <div class="time-buttons">
-                                    <h3>Short Break</h3>
-                                    <input id="short-break-time" type="number" value="5" />
+
+                                <hr>
+
+                                <div class="options">
+                                    <h3>Pixel Font</h3>
+                                    <input id="font-btn" type="checkbox" />
                                 </div>
-                                <div class="time-buttons">
-                                    <h3>Long Break</h3>
-                                    <input id="long-break-time" type="number" value="10" />
+
+                                <div class="options">
+                                    <h3>Display Stats</h3>
+                                    <input id="display-stats-btn" type="checkbox" />
                                 </div>
-                            </div>
 
-                            <hr>
+                                <div class="options">
+                                    <h3>Music</h3>
+                                    <input id="music-audio" type="checkbox" />
+                                </div>
 
-                            <div class="options">
-                                <h3>Pixel Font</h3>
-                                <input id="font-btn" type="checkbox" />
-                            </div>
+                                <div class="options">
+                                    <h3>Music Volume</h3>
+                                    <input id="music-volume" class="volume-bar" type="range" min="0" max="0.2" value="0.1" step="0.02">
+                                </div>
 
-                            <div class="options">
-                                <h3>Music</h3>
-                                <input id="music-audio" type="checkbox" />
-                            </div>
+                                <div class="options">
+                                    <h3>Rain</h3>
+                                    <input id="rain-audio" type="checkbox" />
+                                </div>
 
-                            <div class="options">
-                                <h3>Music Volume</h3>
-                                <input id="music-volume" class="volume-bar" type="range" min="0" max="0.2" value="0.1" step="0.02">
-                            </div>
-
-                            <div class="options">
-                                <h3>Rain</h3>
-                                <input id="rain-audio" type="checkbox" />
-                            </div>
-
-                            <div class="options">
-                                <h3>Rain Volume</h3>
-                                <input id="rain-volume" class="volume-bar" type="range" min="0" max="1" value="0.5" step="0.1">
+                                <div class="options">
+                                    <h3>Rain Volume</h3>
+                                    <input id="rain-volume" class="volume-bar" type="range" min="0" max="1" value="0.5" step="0.1">
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div id="stats-container">
+                <h2 id="stats-title">Stats</h2>
+                <div class="stats-elems">
+                    <h3>Time Spent Studying</h3>
+                    <h3>5h 30m</h3>
+                </div>
+                <div class="stats-elems">
+                    <h3>Time Spent on Break</h3>
+                    <h3>1h 00m</h3>
+                </div>
+                <div class="stats-elems">
+                    <h3>Time Spent Procrastinating</h3>
+                    <h3>2h 30m</h3>
+                </div>
+                <div class="stats-elems">
+                    <h3>Efficiency</h3>
+                    <h3>20%</h3>
+                </div>
+                <hr color=#aa5023 width="100%">
+                <div class="control-buttons">
+                    <button>Pause Session</button>
+                    <button>Stop Session</button>
                 </div>
             </div>
 
@@ -90,6 +122,7 @@
             <script src="index.js"></script>
             <script src="modal.js"></script>
             <script src="font.js"></script>
+            <script src="stats.js"></script>
         </div>
     </body>
 </html>
