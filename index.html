@@ -6,6 +6,8 @@
 
         <link rel="stylesheet" href="./styles.css" />
         <link rel="stylesheet" href="./modal.css" />
+        <link rel="stylesheet" href="./input.css" />
+
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,15 +43,15 @@
                                 <div id="time-options">
                                     <div class="time-buttons">
                                         <h3>Pomodoro</h3>
-                                        <input id="pomodoro-time" type="number" value="25" />
+                                        <input id="pomodoro-time" type="number" value="25" min="1" max="60"/>
                                     </div>
                                     <div class="time-buttons">
                                         <h3>Short Break</h3>
-                                        <input id="short-break-time" type="number" value="5" />
+                                        <input id="short-break-time" type="number" value="5" min="1" max="60"/>
                                     </div>
                                     <div class="time-buttons">
                                         <h3>Long Break</h3>
-                                        <input id="long-break-time" type="number" value="10" />
+                                        <input id="long-break-time" type="number" value="10" min="1" max="60" />
                                     </div>
                                 </div>
 

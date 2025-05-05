@@ -45,7 +45,15 @@ pomodoroBtn.addEventListener("click", function() {
 })
 
 pomodoroTime.addEventListener("change", function() {
-    minutes = pomodoroTime.value
+    if (pomodoroTime.value < 1) {
+        pomodoroTime.value = 1
+        minutes = pomodoroTime.value
+    } else if (pomodoroTime.value > 60) {
+        pomodoroTime.value = 60
+        minutes = pomodoroTime.value
+    } else {
+        minutes = pomodoroTime.value
+    }
     timeDisplay.textContent = displayTime()
     titleDisplay.textContent = displayTimeTitle()
     userPomodoroTime = minutes
@@ -61,7 +69,15 @@ shortBreakBtn.addEventListener("click", function() {
 })
 
 shortBreakTime.addEventListener("change", function() {
-    minutes = shortBreakTime.value
+    if (shortBreakTime.value < 1) {
+        shortBreakTime.value = 1
+        minutes = shortBreakTime.value
+    } else if (shortBreakTime.value > 60) {
+        shortBreakTime.value = 60
+        minutes = shortBreakTime.value
+    } else {
+        minutes = shortBreakTime.value
+    }
     timeDisplay.textContent = displayTime()
     titleDisplay.textContent = displayTimeTitle()
     userShortBreakTime = minutes
@@ -77,7 +93,15 @@ longBreakBtn.addEventListener("click", function() {
 })
 
 longBreakTime.addEventListener("change", function() {
-    minutes = longBreakTime.value
+    if (longBreakTime.value < 1) {
+        longBreakTime.value = 1
+        minutes = longBreakTime.value
+    } else if (longBreakTime.value > 60) {
+        longBreakTime.value = 60
+        minutes = longBreakTime.value
+    } else {
+        minutes = longBreakTime.value
+    }
     timeDisplay.textContent = displayTime()
     titleDisplay.textContent = displayTimeTitle()
     userLongBreakTime = minutes
