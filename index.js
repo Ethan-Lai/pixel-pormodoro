@@ -95,17 +95,22 @@ function displayTimeTitle() {
 
 startPauseBtn.addEventListener("click", function() {
     if (isPaused) {
-        clearInterval(timer)
-        startPauseBtn.textContent = "Start"
+        startTimer()
+        sessionActive = true
+        startPauseBtn.textContent = "Pause"
         isPaused = false
     } else {
-        startTimer()
-        startPauseBtn.textContent = "Pause"
+        clearInterval(timer)
+        startPauseBtn.textContent = "Start"
         isPaused = true
     }
 })
 
 function startTimer() {
+    if (!sessionActive) {
+        updateStatsTimers()
+        sessionActive = true
+    }
     timer = setInterval(() => {
         if (seconds > 0) {
             seconds--
@@ -114,6 +119,7 @@ function startTimer() {
             seconds = 59
         }
 
+        // Timer reaches 0
         if (seconds <= 0 && minutes <= 0) {
             if (String(timeType) === "Pomodoro") {
                 stopTime()
@@ -144,7 +150,7 @@ function stopTime() {
     timeDisplay.textContent = displayTime()
     titleDisplay.textContent = displayTimeTitle()
     clearInterval(timer)
-    isPaused = false
+    isPaused = true
     startPauseBtn.textContent = "Start"
 }
 
