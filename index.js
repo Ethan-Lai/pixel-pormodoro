@@ -18,7 +18,11 @@ var seconds = 0
 var timeDisplay = document.getElementById("time-display")
 var titleDisplay = document.getElementById("browser-title")
 
+timeDisplay.textContent = displayTime()
 titleDisplay.textContent = displayTimeTitle()
+
+var allButtons = document.querySelectorAll("button")
+var modalContent = document.getElementById("modal-content")
 
 let musicBtn = document.getElementById("music-audio")
 let rainBtn = document.getElementById("rain-audio")
@@ -110,11 +114,14 @@ longBreakTime.addEventListener("change", function() {
 
 // Display time with spaces in between
 function displayTime() {
+    if (pixelFontBoolean) {
+        return `${String(minutes)}:${String(seconds).padStart(2, "0")}`
+    } 
     return `${String(minutes).split("").join(" ")} : ${String(seconds).padStart(2, "0").split("").join(" ")}`
 }
 
 function displayTimeTitle() {
-    return`${String(minutes)}:${String(seconds).padStart(2, "0")}`
+    return `${String(minutes)}:${String(seconds).padStart(2, "0")}`
 }
 
 startPauseBtn.addEventListener("click", function() {
@@ -216,4 +223,38 @@ musicVolumeBtn.addEventListener("change", function() {
 rainVolumeBtn.addEventListener("change", function() {
     let volume = rainVolumeBtn.value
     rainAudio.volume = volume
+})
+
+let bodyElem = document.getElementById("body")
+let fontBtn = document.getElementById("font-btn")
+var pixelFontBoolean = false
+
+fontBtn.addEventListener("click", function() {
+    if (pixelFontBoolean) {
+        bodyElem.classList.remove("pixel-font")
+        bodyElem.classList.add("rubik-font")
+        pixelFontBoolean = false
+
+        timeDisplay.textContent = displayTime()
+        timeDisplay.style.width = "500px"
+        allButtons.forEach(button => {
+            button.style.width = "130px"
+        })
+        statsContainer.style.width = "400px"
+        modalContent.style.width = "40%"
+    } else {
+        bodyElem.classList.remove("rubik-font")
+        bodyElem.classList.add("pixel-font")
+        pixelFontBoolean = true
+
+        timeDisplay.textContent = displayTime()
+        timeDisplay.style.width = "650px"
+        allButtons.forEach(button => {
+            button.style.width = "180px"
+        })
+        pauseSessionBtn.style.width = "200px"
+        stopSessionBtn.style.width = "200px"
+        statsContainer.style.width = "620px"
+        modalContent.style.width = "50%"
+    }
 })

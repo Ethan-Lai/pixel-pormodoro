@@ -52,6 +52,17 @@ h1 {
     width: 500px;
 }
 
+#start-option-btns {
+    display: flex;
+    flex-direction: row;
+}
+
+#options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 button {
     border-radius: 5px;
     border: 3px solid #aa5023;
