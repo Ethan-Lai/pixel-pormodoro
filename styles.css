@@ -45,7 +45,7 @@ h1 {
 }
 
 #time-display {
-    font-size: 80px;
+    font-size: 120px;
     margin-top: 40px;
     margin-bottom: 40px;
 }
@@ -103,7 +103,7 @@ input {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    margin: 2vh;
+    margin: 6vh;
     opacity: 70%;
     width: 100%;
 }
